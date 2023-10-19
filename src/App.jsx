@@ -1,11 +1,11 @@
-import AppClima from './components/AppClima'
+import AppSeguro from './components/AppSeguro'
 
 
 function App() {
 
   return (
     <>
-      <AppClima/>
+      <AppSeguro/>
     </>
   )
 }
