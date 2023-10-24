@@ -78,7 +78,7 @@ export default function Formulario() {
         <input
           type="submit"
           className="w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white cursor-pointer p-3 uppercase font-bold"
-          value="cotizar"
+          value="Calcular"
         />
       </form>
     </>

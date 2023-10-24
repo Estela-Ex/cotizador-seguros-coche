@@ -11,6 +11,8 @@ const CotizadorProvider = ({ children }) => {
     plan: "",
   });
   const [error, setError] = useState("");
+  const [resultado, setResultado] = useState(0);
+  const [cargando, setCargando] = useState(false)
   const handleChangeDatos = (e) => {
     setDatos({
       ...datos,
@@ -29,15 +31,19 @@ const CotizadorProvider = ({ children }) => {
     // Americano 15%
     // Asiatico 5%
     resultado *= calcularMarca(datos.marca)
-    console.log(resultado)
     // Básico 20%
     // Completo 50%
     resultado *= calcularPlan(datos.plan);
     // resultado = resultado.toFixed(2) así o de la siguiente forma:
     // Formatear dinero
-
     resultado = formatearDinero(resultado)
-    console.log(resultado)
+
+    setCargando(true)
+
+    setTimeout(() => {
+      setResultado(resultado)
+      setCargando(false)
+    }, 3000)
   }
 
   return (
@@ -48,6 +54,8 @@ const CotizadorProvider = ({ children }) => {
         error,
         setError,
         cotizarSeguro,
+        resultado,
+        cargando
       }}
     >
       {children}
